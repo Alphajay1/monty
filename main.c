@@ -1,6 +1,6 @@
 #include "monty.h"
 
-global_t glob_v;
+global_t glob_var;
 
 void free_glob_var(void);
 void start_glob_var(FILE *fd);
