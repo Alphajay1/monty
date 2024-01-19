@@ -64,7 +64,7 @@ char *_strtok(char *str, char *delim)
 	{
 		if (_sch(delim, str[i]) == 0 && str[i + 1] == '\0')
 		{
-			last_position = s + i + 1;
+			last_position = str + i + 1;
 			*last_position = '\0';
 			str = str + j;
 			return (str);

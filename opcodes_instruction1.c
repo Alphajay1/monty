@@ -11,7 +11,7 @@ void push(stack_t **head, unsigned int line_number)
 {
 	int n, j;
 
-	if (!global_var.arg)
+	if (!glob_var.arg)
 	{
 		dprintf(2, "L%u: ", line_number);
 		dprintf(2, "usage: push integer\n");
@@ -45,7 +45,7 @@ void push(stack_t **head, unsigned int line_number)
  *
  * Return: void
  */
-void pall(stack **head, unsigned int line_number)
+void pall(stack_t **head, unsigned int line_number)
 {
 	stack_t *aux;
 	(void)line_number;
@@ -68,7 +68,7 @@ void pall(stack **head, unsigned int line_number)
  */
 void pint(stack_t **head, unsigned int line_number)
 {
-	void(line_number);
+	(void)line_number;
 
 	if (*head == NULL)
 	{

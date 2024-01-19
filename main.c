@@ -1,6 +1,6 @@
 #include "monty.h"
 
-global_t glob_var;
+global_t glob_v;
 
 void free_glob_var(void);
 void start_glob_var(FILE *fd);
@@ -15,7 +15,7 @@ FILE *check_input(int argc, char *argv[]);
  */
 int main(int argc, char *argv[])
 {
-	void (*f)(stack_t **stack, unsigned int line_number)
+	void (*f)(stack_t **stack, unsigned int line_number);
 	FILE *fd;
 	size_t size = 256;
 	ssize_t n_lines = 0;
@@ -69,7 +69,7 @@ void start_glob_var(FILE *fd)
 	glob_var.lifo = 1;
 	glob_var.current = 1;
 	glob_var.arg = NULL;
-	glob_var.head = fd;
+	glob_var.fd = fd;
 	glob_var.buffer = NULL;
 }
 
@@ -87,6 +87,13 @@ FILE *check_input(int argc, char *argv[])
 	if (argc == 1 || argc > 2)
 	{
 		dprintf(2, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
+	fd = fopen(argv[1], "r");
+
+	if (fd == NULL)
+	{
+		dprintf(2, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	return (fd);
