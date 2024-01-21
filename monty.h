@@ -64,6 +64,11 @@ typedef struct globals
 
 extern global_t glob_var;
 
+void free_glob_var(void);
+void start_glob_var(FILE *fd);
+FILE *check_input(int argc, char *argv[]);
+
+
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **head, unsigned int line_number);
